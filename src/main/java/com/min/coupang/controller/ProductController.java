@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 public class ProductController {
 
@@ -25,7 +27,7 @@ public class ProductController {
         return productService.getProductByName(productName);
     }
     @GetMapping("/product/{productCategory}")
-    public Product getProductByCategory(@PathVariable String productCategory) {
+    public List<Product> getProductByCategory(@PathVariable String productCategory) {
         return productService.getProductByCategoryId(productCategory);
     }
 

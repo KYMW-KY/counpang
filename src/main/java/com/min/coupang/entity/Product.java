@@ -1,15 +1,15 @@
 package com.min.coupang.entity;
 
 import jakarta.persistence.*;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Entity
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@ToString
 public class Product {
 
     @Id
@@ -32,12 +32,4 @@ public class Product {
     @Column(name = "product_rating")
     private int productRating;
 
-    @Builder
-    public Product(String productName, String productCategory, ProductStatus productStatus, float productDiscount, int productRating) {
-        this.name = productName;
-        this.productCategory = productCategory;
-        this.productStatus = productStatus;
-        this.productDiscount = productDiscount;
-        this.productRating = productRating;
-    }
 }

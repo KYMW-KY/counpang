@@ -1,4 +1,12 @@
 spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
   datasource:
     url: jdbc:mysql://localhost:3306/coupang?allowpublickeyretrieval=true&usessl=false&serverTimezone=UTC
     username: root

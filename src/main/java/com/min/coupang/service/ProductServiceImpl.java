@@ -5,6 +5,8 @@ import com.min.coupang.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProductServiceImpl implements ProductService{
     private ProductRepository productRepository;
@@ -23,7 +25,7 @@ public class ProductServiceImpl implements ProductService{
     }
 
     @Override
-    public Product getProductByCategoryId(String category) {
+    public List<Product> getProductByCategoryId(String category) {
         return productRepository.findProductsByProductCategory(category);
     }
 
