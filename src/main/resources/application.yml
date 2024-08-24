@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/coupang?allowpublickeyretrieval=true&usessl=false&serverTimezone=UTC
+    username: root
+    password: 1234
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    dialect: org.hibernate.dialect.MySQL8Dialect
+jpa:
+  properties:
+    hibernate:
+      format_sql: true
+  open-in-view: false
+  database: mysql
+  show-sql: true
+  generate-ddl: true
+  hibernate:
+    ddl-auto: update
