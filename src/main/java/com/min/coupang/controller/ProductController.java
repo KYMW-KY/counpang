@@ -1,6 +1,7 @@
 package com.min.coupang.controller;
 
 import com.min.coupang.entity.Product;
+import com.min.coupang.repository.ProductRepository;
 import com.min.coupang.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,9 +13,12 @@ import java.util.List;
 public class ProductController {
 
     private ProductService productService;
+    private ProductRepository productRepository;
     @Autowired
-    public ProductController(ProductService productService) {
+    public ProductController(ProductService productService
+    , ProductRepository productRepository) {
         this.productService = productService;
+        this.productRepository = productRepository;
     }
 
     @GetMapping("/product/{id}")
@@ -26,7 +30,7 @@ public class ProductController {
     public Product getProductByName(@PathVariable String productName) {
         return productService.getProductByName(productName);
     }
-    @GetMapping("/product/{productCategory}")
+    @GetMapping("/product/productCategory={productCategory}")
     public List<Product> getProductByCategory(@PathVariable String productCategory) {
         return productService.getProductByCategoryId(productCategory);
     }
@@ -36,4 +40,9 @@ public class ProductController {
         productService.addProduct(product);
         System.out.println("저장완료");
     }
+    @GetMapping("/product/get")
+    public List<Product> getProduct() {
+        return productRepository.findAll();
+    }
+
 }

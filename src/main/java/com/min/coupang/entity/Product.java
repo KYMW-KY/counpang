@@ -20,6 +20,9 @@ public class Product {
     @Column(name = "product_name")
     private String name;
 
+    @Column(name = "product_price")
+    private Long price;
+
     @Column(name = "product_category")
     private String productCategory;
 
